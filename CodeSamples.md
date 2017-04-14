@@ -54,8 +54,8 @@ Calling `setState` triggers a rerender of our component. Since `this.state.loadi
         <div className="container card-area wrapper">
           <div className="row row-centered">
            {this.state.loading ?
-           	<p id="loading">Loading...</p> :
-           	React.cloneElement(this.props.children, { apiData: this.state.posts, status: this.state.loading})}
+             <p id="loading">Loading...</p> :
+             React.cloneElement(this.props.children, { apiData: this.state.posts, status: this.state.loading})}
           </div>
         </div>
       </div>
