@@ -15,7 +15,7 @@ The challenge I faced in this problem was passing data from an API to a child ro
 ```
 The `Main` component loads, which automatically loads the `IntroPage` since it is the IndexRoute component. Once the API call is finished the user is automatically directed to the `PostsContainer`route which displays the API data. 
 
-The problem i worked to solve was how to pass the data from the API call in `Main` to the IndexRoute in `Intro Page`.  If it was a child component I could just pass it down through `props`, but I did not know how to do a similar thing through `routes` Below is a short abbreviated example of the components. 
+The problem i worked to solve was how to pass the data from the API call in `Main` to the IndexRoute in `Intro Page`, and then to the different `PostsContainer` route.  If it was a child component I could just pass it down through `props`, but I did not know how to do a similar thing through `routes` Below is a short abbreviated example of the components. 
 ##### Main Component
 
 ```
@@ -90,4 +90,4 @@ var IntroPage = React.createClass({
   }
 });
 ```
-
+All the components have the data from the API call made in `Main Component` as part of their props, which allows me to render it to the page in the `Posts Container` component
