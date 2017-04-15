@@ -1,6 +1,7 @@
 
 #### Angular 2 code sample
 This bug is one I worked through the other day in Angular 2. Unfortunately I can't show the entire code base, but I will lay out the problem here.
+This app creates websites with dynamic content. Part of the structure is hard coded into Angular, 
 #### Component File
 ```
 import { Component, OnInit } from '@angular/core';
