@@ -53,7 +53,22 @@ export class ModelComponent implements OnInit {
 ```html
 <img [ngClass]="adjustImage()" class="model-image" alt="Model image" src={{globalDirective.modelURL}} />
 ```
-On `line 44 ngOnInit()` is called after the directive's data bound properties have been checked for the first time. `document.querySelector` on line 46 selects the element with the class `.model-image` We assign an event listener on line 48 that calls `handleImageLoad()` after the image has loaded and checks the heigth and width, assigning them to variables in our controller. 
+`ngOnInit()` is called after the directive's data bound properties have been checked for the first time. `document.querySelector` selects the element with the class `.model-image` We assign an event listener that calls `handleImageLoad()` after the image has loaded and checks the heigth and width, assigning them to variables in our controller. 
 
 In the template `[ngClass]` allows us to dynamically assign a class to the image, and calls `adjustImage()` That function checks the variables in the controller and assigns the image the class of `image-1` or `image-2`
+
+This solution worked fine initially when there was only one image on the page, but before long I had to do the same thing to multiple images. Initially i was not sure how to proceed, but in the end here is what worked for me.
+
+```Javascript
+ngOnInit() {
+    //select image on template with id of model
+    let images = document.querySelectorAll('.model-image');
+    //when img is loaded call function that calculates its width and height
+    Array.prototype.forEach.call(images, (item) => {
+      item.addEventListener('load', (e) => this.handleImageLoad(e));
+    })
+  }
+}
+```
+`document.querySelectorAll` returns a node list of all the elements that match, whereas `document.querySelector` only returns the first match. Initially I thought I could just use `forEach` to iterate over the nodelist but it does not include that method. After a bit of research I learned I could use `.call` to use the `forEach` method belonging to type `Array` and apply to my `node list` since they both contain the property `length`. `.call` accepts two parameters, the object you are passing in and a call back function. I
 
