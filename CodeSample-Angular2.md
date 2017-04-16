@@ -5,6 +5,8 @@ This code sample is based off an Angular 2 challenge I was working through at wo
 This app dynamically creates websites. Parts like the header, footer, and section code structure are hard coded into the Angular project, with unique images and copy coming from a JSON sitting on S3. Depending on certain parameters the images and copy can vary from site to site. 
 
 The problem I am trying to solve is I need to dynamically apply a CSS class of `image-1` or `image-2` depending on the size of the image. The image can come in two possible dimensions, `280 x 531 or 531 x 431`. A separate component makes the `GET` request to S3, and the image url is avalable in our project as the `globalDirective.modelURL` property.
+
+Lets take a look at the initial implementation. 
 #### Component File
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -41,7 +43,7 @@ export class ModelComponent implements OnInit {
 
   ngOnInit() {
     //select image on template with id of model
-    let image = document.querySelectorAll('.model-image');
+    let image = document.querySelector('.model-image');
     //when img is loaded call function that calculates its width and height
     image.addEventListener('load', (e) => this.handleImageLoad(e));
   }
@@ -51,4 +53,7 @@ export class ModelComponent implements OnInit {
 ```html
 <img [ngClass]="adjustImage()" class="model-image" alt="Model image" src={{globalDirective.modelURL}} />
 ```
+On `line 44 ngOnInit()` is called after the directive's data bound properties have been checked for the first time. `document.querySelector` on line 46 selects the element with the class `.model-image` We assign an event listener on line 48 that calls `handleImageLoad()` after the image has loaded and checks the heigth and width, assigning them to variables in our controller. 
+
+In the template `[ngClass]` allows us to dynamically assign a class to the image, and calls `adjustImage()` That function checks the variables in the controller and assigns the image the class of `image-1` or `image-2`
 
