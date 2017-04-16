@@ -6,7 +6,7 @@ This app dynamically creates websites. Parts like the header, footer, and sectio
 
 The problem I am trying to solve is I need to dynamically apply a CSS class of `image-1` or `image-2` depending on the size of the image. The image can come in two possible dimensions, `280 x 531 or 531 x 431`. A separate component makes the `GET` request to S3, and the image url is avalable in our project as the `globalDirective.modelURL` property.
 #### Component File
-```
+```javascript
 import { Component, OnInit } from '@angular/core';
 import { GlobalDirective } from '../../global.directive';
 
@@ -41,18 +41,14 @@ export class ModelComponent implements OnInit {
 
   ngOnInit() {
     //select image on template with id of model
-    let images = document.querySelectorAll('.model-image');
+    let image = document.querySelectorAll('.model-image');
     //when img is loaded call function that calculates its width and height
-    //images.addEventListener('load', (e) => this.handleImageLoad(e));
-    [].forEach.call(images, (item) => {
-      item.addEventListener('load', (e) => this.handleImageLoad(e));
-    })
+    image.addEventListener('load', (e) => this.handleImageLoad(e));
   }
-}
 
 ```
 #### Template File
-```
+```html
 <img [ngClass]="adjustImage()" class="model-image" alt="Model image" src={{globalDirective.modelURL}} />
 ```
 
