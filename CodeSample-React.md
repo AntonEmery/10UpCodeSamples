@@ -2,7 +2,6 @@
 ## Code Samples for Front End Engineer Position
 Anton Emery
 
-#### Sample 1
 ##### React
 The challenge I faced in this problem was passing data from an API to a child route, which would then display a list of social media posts. The entire repo can be found here. https://github.com/AntonEmery/alaska-project
 ##### The Router
