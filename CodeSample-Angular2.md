@@ -70,4 +70,6 @@ ngOnInit() {
   }
 }
 ```
-`document.querySelectorAll` returns a node list of all the elements that match, whereas `document.querySelector` only returns the first match. I thought I could just use `forEach` to iterate over the nodelist but it does not have that method. After a bit of research I learned I could use `.call` to use the `forEach` method belonging to type `Array` and apply to my `node list` since they both contain the property `length`. In `.call` I pass in the object I want to use, in this case the `images` variable, and then the action I want to take when `forEach` iterates over each item. I use the same eventlistener as previous, and each image with the class `.model-image` is evaluated and the correct class dynamically applied.
+`document.querySelectorAll` returns a node list of all the elements that match, whereas `document.querySelector` only returns the first match. I thought I could just use `forEach` to iterate over the nodelist but it does not have that method. 
+
+After a bit of research I learned I could use `.call` to use the `forEach` method belonging to type `Array` and apply to my `node list` since they both contain the property `length`. In `.call` I pass in the object I want to use, in this case the `images` variable, and then the action I want to take when `forEach` iterates over each item. I use the same eventlistener as previous, and each image with the class `.model-image` is evaluated and the correct class dynamically applied.
