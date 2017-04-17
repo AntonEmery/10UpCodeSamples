@@ -90,4 +90,6 @@ var IntroPage = React.createClass({
   }
 });
 ```
-All the components have the data from the API call made in `Main Component` as part of their props, which allows me to render it to the page in the `Posts Container` component
+All the components have the data from the API call made in `Main Component` as part of their props, which allows me to render it to the page in the `Posts Container` component.
+
+The magic that lets this happen is the `React.cloneElement` method. This allows us to pass the state down as props to child components.
