@@ -56,7 +56,7 @@ export class ModelComponent implements OnInit {
 
 In the template `[ngClass]` allows us to dynamically assign a class to the image, and calls `adjustImage()` That function checks the variables in the controller and assigns the image the class of `image-1` or `image-2`
 
-This solution worked fine initially when there was only one image on the page, but before long I had to do the same thing to multiple images. Initially i was not sure how to proceed, but in the end here is what worked for me.
+This solution worked fine initially when there was only one image on the page, but before long I had to do the same thing to multiple images on the same page. Here is the solution that worked for me, the only thing that really changed was in the `ngOnInit()` function.
 
 ```Javascript
 ngOnInit() {
