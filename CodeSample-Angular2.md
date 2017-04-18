@@ -1,4 +1,5 @@
 
+#### Anton Emery
 #### Angular 2 code sample
 This code sample is based off an Angular 2 bug I was working through at work. Unfortunately I can't show the entire code base, but I will lay out the problem and my solution here.
 #### Overview
