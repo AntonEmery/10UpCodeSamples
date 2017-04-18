@@ -35,7 +35,6 @@ export class ModelComponent implements OnInit {
   }
 
   handleImageLoad(e): void {
-    console.log(e.target.width + 'and' + e.target.height)
     //assign image's width and height to local variables
     this.width = e.target.width;
     this.height = e.target.height;
