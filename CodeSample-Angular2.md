@@ -4,7 +4,7 @@ This code sample is based off an Angular 2 bug I was working through at work. Un
 #### Overview
 This app dynamically creates template based websites. Parts like the header, footer, and section code structure are hard coded into the Angular project, with unique images and copy coming from a JSON sitting on S3. Depending on certain parameters the images and copy can vary from site to site. 
 
-The problem I am trying to solve is I need to dynamically apply a CSS class of `image-1` or `image-2` depending on the size of the image. The image can come in two possible dimensions, `280 x 531 or 531 x 431`. A separate component makes the `GET` request to S3, and the image url is avalable in our project as the `globalDirective.modelURL` property.
+The problem I am trying to solve is I need to dynamically apply a CSS class of `image-1` or `image-2` depending on the size of the image. The image can come in two possible dimensions, `280 x 531 or 531 x 431`. The `GlobalDirective` component makes the `GET` request to S3, and the image url is avalable in our project as the `globalDirective.modelURL` property.
 
 Lets take a look at the initial implementation. 
 #### Component File
